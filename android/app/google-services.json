@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "859958564621",
+    "project_id": "prayer-assitant-eb0c4",
+    "storage_bucket": "prayer-assitant-eb0c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859958564621:android:d030cc58f78575afc40244",
+        "android_client_info": {
+          "package_name": "com.example.prayer_assitant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859958564621-e1ju9p0bd0glvjjosfu9fid2aojo2k7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0PwlwQRO81cZnkzxDWZDR56ADB7JfK70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859958564621-e1ju9p0bd0glvjjosfu9fid2aojo2k7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
