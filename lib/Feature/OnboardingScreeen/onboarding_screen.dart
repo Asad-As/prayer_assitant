@@ -161,12 +161,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     curve: Curves.easeIn,
                                   );
                                 },
-                                child: const Text("NEXT"),
+                                child: const Icon(Icons.arrow_forward_sharp),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
+                                  backgroundColor: Colors.blue,
+                                  shape: CircleBorder(),
+
+                                  //RoundedRectangleBorder(
+                                  //  borderRadius: BorderRadius.circular(50),
+
+                                 // ),
+
                                   elevation: 0,
                                   padding: (width <= 550)
                                       ? const EdgeInsets.symmetric(

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_assitant/Core/AppSizeBox.dart';
 
+import '../../Core/imagePath.dart';
+
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+   HomeScreen({Key? key}) : super(key: key);
+
+
+  Images imageS = Images();
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +16,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           fixheight10,
           fixwidth10,
+          Image.asset(imageS.splashScreenImage),
           Text('jeewfj,c,hg.v'),
         ],
       ),
