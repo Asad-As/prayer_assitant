@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/size_config.dart';
 
 import 'onboarding_contents.dart';
@@ -63,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemCount: contents.length,
                 itemBuilder: (context, i) {
                   return Padding(
-                    padding: const EdgeInsets.all(40.0),
+                    padding:  EdgeInsets.all(40.0.r),
                     child: Column(
                       children: [
                         Image.asset(

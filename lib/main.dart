@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 700),
+        designSize: const Size(375, 700),
         // designSize:  Size(1.sw, 1.sh),
         minTextAdapt: true,
         splitScreenMode: true,
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-            home: const OnboardingScreen(),
+            home:  HomeScreen(),
           );
         }
     );
