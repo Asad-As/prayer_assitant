@@ -1,3 +1,5 @@
+import '../../Core/imagePath.dart';
+
 class OnboardingContents {
   final String title;
   final String image;
@@ -9,23 +11,27 @@ class OnboardingContents {
     required this.desc,
   });
 }
+Images imageS = Images();
 
 List<OnboardingContents> contents = [
   OnboardingContents(
-    title: "Track Your work and get the result",
-    image: "assets/images/image1.png",
-    desc: "Remember to keep track of your professional accomplishments.",
+    title: "PRAYER TIME",
+    image: imageS.onboard1,
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem\n"
+  "Ipsum has been the industry's standard\n dummy text ever since the 1500s, when an\n unknown printer took a galley",
   ),
   OnboardingContents(
-    title: "Stay organized with team",
-    image: "assets/images/image2.png",
+    title: "READ QURAAN",
+    image: imageS.onboard2,
     desc:
-        "But understanding the contributions our colleagues make to our teams and companies.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem\n"
+        "Ipsum has been the industry's standard\n dummy text ever since the 1500s, when an\n unknown printer took a galley",
   ),
   OnboardingContents(
-    title: "Get notified when work happens",
-    image: "assets/images/image3.png",
+    title: "DONATION",
+    image: imageS.onboard3,
     desc:
-        "Take control of notifications, collaborate live or on your own time.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem\n"
+        "Ipsum has been the industry's standard\n dummy text ever since the 1500s, when an\n unknown printer took a galley",
   ),
 ];
