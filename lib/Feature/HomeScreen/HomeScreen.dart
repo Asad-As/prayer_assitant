@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/AppSizeBox.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/SliderforMonths.dart';
+import 'package:prayer_assitant/Feature/HomeScreen/listviewforscreens.dart';
 
 import '../../Core/imagePath.dart';
 
@@ -25,14 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container (
-          height: 1.sh,
           width: 1.sw,
           decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
                   imageS.bg
             ),
-                fit: BoxFit.fill
+                fit: BoxFit.cover
             )
           ),
           child: Padding(
@@ -76,9 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 fixheight15,
                 Text('Islamic Calander ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: AppColors.KwitheColor),),
                 fixheight15,
-              slider()
-
-              ],
+                 slider(),
+                fixheight15,
+                ListviewforScreens()
+            ],
             ),
           ),
         ),

@@ -1,99 +1,76 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
-import 'package:prayer_assitant/Feature/HomeScreen/CommanCard.dart';
+import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_contents.dart';
 class slider extends StatefulWidget {
   slider({Key? key}) : super(key: key);
 
   @override
   State<slider> createState() => _sliderState();
 
+
+
 }
 
 class _sliderState extends State<slider> {
-
-  int _currentIndex=0;
-
-  List cardList=[
-
-    Item1(),
-    Item1(),
-    Item1(),
-    Item1(),
-    /*Item2(),
-    Item3(),
-    Item4()*/
+  List monthsName =[
+    'Muharram',
+    'Safar',
+    'Rabi al-Awwal',
+    'Rabi al-Thani',
+    'Jumada al-Awwal',
+    'Jumada al-Thani',
+    'Rajab',
+    'Shaban',
+    'Ramadan',
+    'Shawwal',
+    'Dhu al-Qadah',
+    'Dhu al-Hijjah (month of Hajj)'
   ];
 
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
+
+  final PageController _pageViewController = PageController(initialPage: 3); // set the initial page you want to show
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _pageViewController.dispose();  // dispose the PageController
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children: <Widget>[
-        CarouselSlider(
-          options: CarouselOptions(
-            viewportFraction: 1,
-            height: 100.0,
-            onPageChanged: (index, reason) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-          ),
-          items: cardList.map((card){
-            return Builder(
-                builder:(BuildContext context){
-                  return Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: Card(
-                      child: card,
-                    ),
-                  );
-                }
-            );
-          }).toList(),
+    return  Container(
+      height: 100,
+      width: 1.sh,
+      child: PageView.builder(
+        itemCount: 12,
+        controller: PageController(
+          initialPage: 0,
+          viewportFraction: 0.5,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: map<Widget>(cardList, (index, url) {
-            return Container(
-              width: 10.0,
-              height: 10.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _currentIndex == index ? AppColors.KwitheColor : AppColors.Ksearchcolor,
-              ),
-            );
-          }),
-        ),
-      ],
-    );
-  }
-}
-class Item1 extends StatelessWidget {
-  const Item1({Key? key}) : super(key: key);
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            padding: EdgeInsets.only(right: 5),
+            child: Stack(children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(imageS.hajguid,width: 150,)),
+              Positioned(
+                bottom: 5,
+                child: Container( height: 20,width: 143.w,
+                     decoration: BoxDecoration(color: Colors.white70,
+                         borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Text(monthsName[index],textAlign: TextAlign.center,),
+                ),
+              )
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          comman_Card(),
-          comman_Card(),
-          comman_Card()
+            ],),);
+        },
 
-        ],
       ),
     );
   }
 }
+
