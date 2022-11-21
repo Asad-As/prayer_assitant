@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_contents.dart';
+import 'package:prayer_assitant/Feature/RegisterScreen/Register_Screen.dart';
 import '../../Core/common_methods.dart';
 import '../../Core/common_wedgits.dart';
 import '../../Core/imagePath.dart';
@@ -33,11 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
              ),
            ),
            child: Column(
+
              mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(imageS.Signinpic,height: 250.h,width: 250.h,),
               makeInput(allcontroller: emailcontroller,Htext: 'Email Address',
-                
+
               ),
             makeInput(obsureText: _isobscure,allcontroller: passwordcontroller,Htext: ' Password',
                 Iconss:  IconButton(
@@ -62,7 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text("Forgot Password ? ",style: TextStyle(fontSize: 15),),
                   SizedBox(width: 5,),
                   InkWell(
-                    onTap: (){Navigator.pushNamed(context, " ");},
+                    onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+                      return const RegisterScreen();
+                    }));},
                     child: Text("Register",style: TextStyle(
                         fontSize: 13,
                         color: Colors.blue,
@@ -74,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 height: 40.h,
                 width: 250.h,
-                color: Colors.white,
+                color:AppColors.witheColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

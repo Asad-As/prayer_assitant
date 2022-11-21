@@ -23,69 +23,70 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
 
-      body: SafeArea(
-        child: Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              image:  DecorationImage(
-                image: AssetImage(imageS.bg),
-                fit: BoxFit.fill,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(imageS.Signuppic,height: 100.h,width: 250.h,),
-                SizedBox(width: 10,),
-                Text("signup / Register",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
-                makeInput(allcontroller: emailcontroller,Htext: 'First Name',
 
-                ),
-                makeInput(allcontroller: emailcontroller,Htext: 'Last Name',
+      body: SingleChildScrollView(
+        child: Container(
 
-                ),
-                makeInput(allcontroller: emailcontroller,Htext: 'Email Address',
-                ),
-                makeInput(allcontroller: emailcontroller,Htext: 'Phone Number',
-
-                ),
-                makeInput(obsureText: _isobscure,allcontroller: passwordcontroller,Htext: ' Password',
-                  Iconss:  IconButton(
-                    onPressed: (){
-                      setState(() {
-                        _isobscure = !_isobscure;
-                      });
-
-                    },
-                    icon: Icon(
-                        _isobscure
-                            ?  Icons.visibility_off
-                            : Icons.visibility
-
-                    ),),
-                ),
-                makeInput(obsureText: _isobscure,allcontroller: passwordcontroller,Htext: 'Confirm Password',
-                  Iconss:  IconButton(
-                    onPressed: (){
-                      setState(() {
-                        _isobscure = !_isobscure;
-                      });
-
-                    },
-                    icon: Icon(
-                        _isobscure
-                            ?  Icons.visibility_off
-                            : Icons.visibility
-
-                    ),),
-                ),
-                CoustomButton(pointToOnPress: (){}, buttonTitle: "REGISTER"),
-
-
-              ],
+          decoration: BoxDecoration(
+            image:  DecorationImage(
+              image: AssetImage(imageS.bg),
+              fit: BoxFit.cover,
             ),
           ),
-        ),),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(imageS.Signuppic,height: 200.h,width: 250.h,),
+              SizedBox(height: 05,),
+              Text("signup / Register",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+              SizedBox(height: 20),
+              makeInput(allcontroller: emailcontroller,Htext: 'First Name',
+              ),
+              makeInput(allcontroller: emailcontroller,Htext: 'Last Name',
+              ),
+              makeInput(allcontroller: emailcontroller,Htext: 'Email Address',
+              ),
+              makeInput(allcontroller: emailcontroller,Htext: 'Phone Number',
+
+              ),
+              makeInput(obsureText: _isobscure,allcontroller: passwordcontroller,Htext: ' Password',
+                Iconss:  IconButton(
+                  onPressed: (){
+                    setState(() {
+                      _isobscure = !_isobscure;
+                    });
+
+                  },
+                  icon: Icon(
+                      _isobscure
+                          ?  Icons.visibility_off
+                          : Icons.visibility
+
+                  ),),
+              ),
+              makeInput(obsureText: _isobscure,allcontroller: passwordcontroller,Htext: 'Confirm Password',
+                Iconss:  IconButton(
+                  onPressed: (){
+                    setState(() {
+                      _isobscure = !_isobscure;
+                    });
+
+                  },
+                  icon: Icon(
+                      _isobscure
+                          ?  Icons.visibility_off
+                          : Icons.visibility
+
+                  ),),
+              ),
+              SizedBox(height: 15),
+              CoustomButton(pointToOnPress: (){}, buttonTitle: "REGISTER"),
+
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

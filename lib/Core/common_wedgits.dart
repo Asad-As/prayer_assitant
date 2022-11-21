@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:prayer_assitant/Core/AppColors.dart';
 
 class CoustomButton extends StatelessWidget {
   String buttonTitle;
@@ -22,7 +23,7 @@ class CoustomButton extends StatelessWidget {
         child: loading ? CircularProgressIndicator(strokeWidth: 3,color: Colors.white,):
         Text(buttonTitle,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
         style: ElevatedButton.styleFrom(
-          primary:Colors.blue,
+          primary:AppColors.btn_color
           ),
 
 
