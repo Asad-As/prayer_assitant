@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:prayer_assitant/Feature/HadeesSreen/hadees_screen.dart';
+import 'package:prayer_assitant/Feature/HajjGuideScreen/hajjguide_screen.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
+import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_screen.dart';
+import 'package:prayer_assitant/Feature/PrayertimeScreen/prayertime_screen.dart';
+import 'package:prayer_assitant/Feature/RamadanScreen/ramadan_screen.dart';
+import 'package:prayer_assitant/Feature/RegisterScreen/Register_Screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +31,9 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-            home: const OnboardingScreen(),
+          // home: const LoginScreen(),
+          // home: const PrayertimeScreen(),
+           home: const HajjGuideScreen(),
           );
         }
     );
