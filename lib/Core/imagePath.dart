@@ -21,6 +21,7 @@ class Images {
    String umrahguid = '$assetsPath/10.png';
    String hajguid = '$assetsPath/11.png';
    String bg = '$assetsPath/bg.png';
+   String Google = '$assetsPath/google.png';
 
 
 }
