@@ -76,7 +76,7 @@ class _DonationScreen2State extends State<DonationScreen2> {
 
                                   children: [
                                     Image.asset(imageS.simcard,height: 32.h,width: 43.w,),
-                                    Image.asset(imageS.Google,height: 32.h,width: 40.w,),
+                                    Image.asset(imageS.visalogo,height: 34.h,width: 137.w,),
 
 
 
@@ -142,14 +142,14 @@ class _DonationScreen2State extends State<DonationScreen2> {
                 SizedBox(height: 20.h),
 
                 Container(
-                  height: 50.h,
+                  height: 45.h,
                   width: double.infinity,
                   color:AppColors.Lightblack,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
 
-                      Image.asset(imageS.Google,height: 25.h,width: 20.h,),
+                      Image.asset(imageS.easypaisa,height: 30.h,width: 30.h,),
                       SizedBox(width: 25.w,),
                       Text("Pay via EasyPaisa",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),),
                     ],
@@ -157,14 +157,14 @@ class _DonationScreen2State extends State<DonationScreen2> {
                 ),
                 SizedBox(height: 20.h),
                 Container(
-                  height: 50.h,
+                  height: 45.h,
                   width: double.infinity,
                   color:AppColors.Lightblack,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
 
-                      Image.asset(imageS.Google,height: 25.h,width: 20.h,),
+                      Image.asset(imageS.jazzcash,height: 25.h,width: 40.h,),
                       SizedBox(width: 25.w,),
                       Text("Pay via Jazz Cash",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),),
                     ],
