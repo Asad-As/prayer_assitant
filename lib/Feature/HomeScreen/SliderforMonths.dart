@@ -26,8 +26,26 @@ class _sliderState extends State<slider> {
     'Ramadan',
     'Shawwal',
     'Dhu al-Qadah',
-    'Dhu al-Hijjah (month of Hajj)'
+    'Dhu al-Hijjah '
   ];
+List monthimg = [
+  imageS.m1,
+  imageS.m2,
+  imageS.m3,
+  imageS.m4,
+  imageS.m5,
+  imageS.m6,
+  imageS.m7,
+  imageS.m8,
+  imageS.m9,
+  imageS.m10,
+  imageS.m11,
+  imageS.m12
+];
+
+
+
+
 
 
   final PageController _pageViewController = PageController(initialPage: 3); // set the initial page you want to show
@@ -47,7 +65,7 @@ class _sliderState extends State<slider> {
       child: PageView.builder(
         itemCount: 12,
         controller: PageController(
-          initialPage: 0,
+          initialPage: 3,
           viewportFraction: 0.5,
         ),
         itemBuilder: (BuildContext context, int index) {
@@ -56,10 +74,10 @@ class _sliderState extends State<slider> {
             child: Stack(children: [
             ClipRRect(
                 borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(imageS.hajguid,width: 150,)),
+                child: Image.asset(monthimg[index],height: 100 ,width: 150,fit: BoxFit.fill,)),
               Positioned(
                 bottom: 5,
-                child: Container( height: 20,width: 143.w,
+                child: Container( height: 20,width: 137.w,
                      decoration: BoxDecoration(color: Colors.white70,
                          borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(monthsName[index],textAlign: TextAlign.center,),

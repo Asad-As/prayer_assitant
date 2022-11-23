@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Images imageS = Images();
 
   TextEditingController _editingController= TextEditingController();
- 
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(left: 30),
-                      label: Text('Search here '),
+                      hintText: "Search Here",
                       suffixIcon: Container(
                           height: 30,
                           width: 20,
@@ -74,10 +74,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 fixheight15,
-                Text('Islamic Calander ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: AppColors.KwitheColor),),
+                Text('Islamic Calander ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: AppColors.witheColor),),
                 fixheight15,
                  slider(),
-                fixheight15,
+                fixheight5,
                 ListviewforScreens()
             ],
             ),
