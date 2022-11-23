@@ -22,6 +22,9 @@ class Images {
    String hajguid = '$assetsPath/11.png';
    String bg = '$assetsPath/bg.png';
    String Google = '$assetsPath/google.png';
+   String simcard = '$assetsPath/simcard.png';
+   String visalogo = '$assetsPath/visa.png';
+   String ePysa = '$assetsPath/easypaisa.png';
 
 
 }
