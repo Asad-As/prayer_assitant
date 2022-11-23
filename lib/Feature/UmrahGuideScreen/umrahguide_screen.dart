@@ -6,14 +6,14 @@ import 'package:prayer_assitant/Core/common_methods.dart';
 
 import '../OnboardingScreeen/onboarding_contents.dart';
 
-class HajjGuideScreen extends StatefulWidget {
-  const HajjGuideScreen({Key? key}) : super(key: key);
+class UmrahGuideScreen extends StatefulWidget {
+  const UmrahGuideScreen({Key? key}) : super(key: key);
 
   @override
-  State<HajjGuideScreen> createState() => _HajjGuideScreenState();
+  State<UmrahGuideScreen> createState() => _UmrahGuideScreenState();
 }
 
-class _HajjGuideScreenState extends State<HajjGuideScreen> {
+class _UmrahGuideScreenState extends State<UmrahGuideScreen> {
 
 
   @override
@@ -35,7 +35,7 @@ class _HajjGuideScreenState extends State<HajjGuideScreen> {
                 height: 20.h,
               ),
               Center(
-                child: Text('Hajj Guide',
+                child: Text('Umrah Guide',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 30.sp,

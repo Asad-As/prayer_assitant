@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
+import 'package:prayer_assitant/Feature/QuranScreens/Quran_screen2.dart';
 
 import '../OnboardingScreeen/onboarding_contents.dart';
 
@@ -161,7 +162,7 @@ class _QuranScreen1State extends State<QuranScreen1> {
                       )),
                 ),
                 SizedBox(
-                  height: 30.h,
+                  height: 15.h,
 
                 ),
                 SizedBox(
@@ -174,7 +175,7 @@ class _QuranScreen1State extends State<QuranScreen1> {
                           padding: EdgeInsets.symmetric(vertical: 12.h),
                           child: Container(
 
-                            height: 65.h,
+                            height: 73.h,
                             width: 350.w,
                             decoration:  BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
@@ -189,23 +190,26 @@ class _QuranScreen1State extends State<QuranScreen1> {
                               children: [
 
 
-                                ListTile(
+                                InkWell(
+                                  onTap: (){ Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) =>QuranScreen2()),
+                                  );},
+                                  child: ListTile(
+                                    title: Tstyles(text:sorah[index],Fsize: 18.sp,bold: FontWeight.bold)  ,
+                                    subtitle: Tstyles(text: "The Opening",Fsize: 13.sp,),
+                                    leading:   Container(
+                                            height: 64.h,
+                                            width: 55.w,
+
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                                          color: AppColors.btn2_Color,
+                                        ),
+                                        child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.bold)))  ,
 
 
-                                  title: Tstyles(text:sorah[index],Fsize: 18.sp,bold: FontWeight.bold)  ,
-
-                                  subtitle: Tstyles(text: "The Opening",Fsize: 13.sp,),
-                                  leading:   Container(
-                                          height: 64.h,
-                                          width: 55.w,
-
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                                        color: AppColors.btn2_Color,
-                                      ),
-                                      child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.bold)))  ,
-
-
+                                  ),
                                 ),
                               ],
                             ),

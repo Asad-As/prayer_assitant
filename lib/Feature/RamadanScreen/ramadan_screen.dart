@@ -43,7 +43,7 @@ class _RamadanScreenState extends State<RamadanScreen> {
                     )),
               ),
               SizedBox(
-                height: 30.h,
+                height: 15.h,
 
               ),
               Expanded(
@@ -56,7 +56,7 @@ class _RamadanScreenState extends State<RamadanScreen> {
                         padding: EdgeInsets.symmetric(vertical: 12.h),
                         child: Container(
 
-                          height: 65.h,
+                          height: 73.h,
                           width: 350.w,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(5.r)),
