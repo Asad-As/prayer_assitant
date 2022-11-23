@@ -26,6 +26,22 @@ class Images {
    String visalogo = '$assetsPath/visa.png';
    String ePysa = '$assetsPath/easypaisa.png';
 
+   String m1 = '$assetsPath/muhharam.jpg';
+   String m2 = '$assetsPath/saffar.jpg';
+   String m3 = '$assetsPath/rabiulawal.jpg';
+   String m4 = '$assetsPath/rabisuani.jpg';
+   String m5 = '$assetsPath/jamadiawal.jpg';
+   String m6 = '$assetsPath/jamadusani.png';
+   String m7 = '$assetsPath/rajab.jpg';
+   String m8 = '$assetsPath/saban.jpg';
+   String m9 = '$assetsPath/ramdan.jpg';
+   String m10= '$assetsPath/shawal.png';
+   String m11 = '$assetsPath/dhulqadah.png';
+   String m12 = '$assetsPath/dhu haj.jpg';
+
+   String qibla= '$assetsPath/qibla.png';
+
+
 
 }
 

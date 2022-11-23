@@ -66,7 +66,7 @@ class _DuasScreenState extends State<DuasScreen> {
                       )),
                 ),
                 SizedBox(
-                  height: 30.h,
+                  height: 15.h,
 
                 ),
                 SizedBox(
