@@ -56,8 +56,8 @@ Widget makeInput({obsureText = false,hint,allcontroller,Htext,txt2, Iconss,icons
 }
 
 
-Widget Tstyles({text,Fsize,bold}){
+Widget Tstyles({text,Fsize,bold,color,Textside}){
   return
-    Text(text,style: TextStyle(fontSize: Fsize,fontWeight: bold),);
+    Text(text,style: TextStyle(fontSize: Fsize,fontWeight: bold,color: color,),textAlign: Textside,);
 
 }
