@@ -56,9 +56,10 @@ class _HadeesScreenState extends State<HadeesScreen> {
                         padding: EdgeInsets.symmetric(vertical: 12.h),
                         child: Container(
 
-                          height: 63.h,
+                          height: 65.h,
                           width: 350.w,
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5.r)),
                             color: AppColors.witheColor,
 
 
