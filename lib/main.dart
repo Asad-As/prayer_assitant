@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
           // home: const LoginScreen(),
+
           // home: const PrayertimeScreen(),
            home: HomeScreen(),
           );

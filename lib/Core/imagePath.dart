@@ -24,7 +24,9 @@ class Images {
    String Google = '$assetsPath/google.png';
    String simcard = '$assetsPath/simcard.png';
    String visalogo = '$assetsPath/visa.png';
-   String ePysa = '$assetsPath/easypaisa.png';
+   String easypaisa = '$assetsPath/easypaisa.png';
+   String jazzcash = '$assetsPath/jazzcash.png';
+   String EasyPaisa2 = '$assetsPath/EasyPaisa2.png';
 
    String m1 = '$assetsPath/muhharam.jpg';
    String m2 = '$assetsPath/saffar.jpg';
