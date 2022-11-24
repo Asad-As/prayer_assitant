@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
+import 'package:prayer_assitant/Feature/DonationsScreens/donation_screen2.dart';
 
 import '../../Core/common_wedgits.dart';
 import '../../Core/imagePath.dart';
@@ -58,7 +59,14 @@ class _DonationScreen1State extends State<DonationScreen1> {
 
 
                 SizedBox(height: 10.h),
-                CoustomButton(pointToOnPress: (){}, buttonTitle: "Proceed"),
+                CoustomButton(
+                    pointToOnPress: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DonationScreen2()),
+                  );
+
+                }, buttonTitle: "Proceed"),
 
 
 
