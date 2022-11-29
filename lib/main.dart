@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:prayer_assitant/Feature/HadeesSreen/hadees_screen.dart';
-import 'package:prayer_assitant/Feature/HajjGuideScreen/hajjguide_screen.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
-import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_screen.dart';
-import 'package:prayer_assitant/Feature/PrayertimeScreen/prayertime_screen.dart';
-import 'package:prayer_assitant/Feature/QiblaDirection/qiblaDirection.dart';
-import 'package:prayer_assitant/Feature/RamadanScreen/ramadan_screen.dart';
-import 'package:prayer_assitant/Feature/RegisterScreen/Register_Screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+int? isviewed;
+void main()  async{
+  runApp(MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isviewed = prefs.getInt('onBoard');
+
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,9 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-          // home: const LoginScreen(),
 
-          // home: const PrayertimeScreen(),
-           home: HomeScreen(),
+           home:isviewed != 0 ? OnboardingScreen() : HomeScreen(),
+            /*home: SplashScreen()*/
           );
         }
     );

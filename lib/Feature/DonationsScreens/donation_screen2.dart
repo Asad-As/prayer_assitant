@@ -7,6 +7,8 @@ import 'package:prayer_assitant/Core/common_methods.dart';
 import '../../Core/common_wedgits.dart';
 import '../../Core/imagePath.dart';
 import '../OnboardingScreeen/onboarding_contents.dart';
+import 'easypaisa_screen.dart';
+import 'jazzchash_screen.dart';
 
 class DonationScreen2 extends StatefulWidget {
   const DonationScreen2({Key? key}) : super(key: key);
@@ -151,7 +153,14 @@ class _DonationScreen2State extends State<DonationScreen2> {
 
                       Image.asset(imageS.easypaisa,height: 30.h,width: 30.h,),
                       SizedBox(width: 25.w,),
-                      Text("Pay via EasyPaisa",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),),
+                      InkWell(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>EasypaisaScreen() ),
+                            );
+                          },
+                          child: Text("Pay via EasyPaisa",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),)),
                     ],
                   ),
                 ),
@@ -166,7 +175,13 @@ class _DonationScreen2State extends State<DonationScreen2> {
 
                       Image.asset(imageS.jazzcash,height: 25.h,width: 40.h,),
                       SizedBox(width: 25.w,),
-                      Text("Pay via Jazz Cash",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),),
+                      InkWell(onTap:(){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => JazzchashScreen()),
+                        );
+                      },
+                        child: Text("Pay via Jazz Cash",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: AppColors.witheColor),)),
                     ],
                   ),
                 ),

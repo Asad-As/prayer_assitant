@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../Core/common_methods.dart';
 import '../../Core/common_wedgits.dart';
 import '../../Core/imagePath.dart';
+import '../HomeScreen/HomeScreen.dart';
 
 class JazzchashScreen extends StatefulWidget {
   const JazzchashScreen({Key? key}) : super(key: key);
@@ -67,7 +68,12 @@ class _JazzchashScreenState extends State<JazzchashScreen> {
                 ),
 
                 SizedBox(height: 30),
-                CoustomButton(pointToOnPress: (){}, buttonTitle: "Proceed"),
+                CoustomButton(pointToOnPress: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>HomeScreen() ),
+                  );
+                }, buttonTitle: "Proceed"),
 
 
               ],

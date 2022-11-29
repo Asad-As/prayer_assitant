@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/size_config.dart';
 
+import '../HomeScreen/HomeScreen.dart';
 import 'onboarding_contents.dart';
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -37,8 +38,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
         color: Color(0xFF000000),
       ),
-      margin: const EdgeInsets.only(right: 5),
-      height: 10,
+      margin: EdgeInsets.only(right: 5.w),
+      height: 10.h,
       curve: Curves.easeIn,
       width: _currentPage == index ? 20 : 10,
     );
@@ -56,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: PageView.builder(
                 physics: const BouncingScrollPhysics(),
                 controller: _controller,
@@ -117,16 +118,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ? Padding(
                           padding: const EdgeInsets.all(30),
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>HomeScreen() ),
+                              );
+                            },
                             child: const Text("START"),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              padding: (width <= 550)
-                                  ? const EdgeInsets.symmetric(
-                                      horizontal: 100, vertical: 20)
+                              padding: (width <= 550.w)
+                                  ?  EdgeInsets.symmetric(
+                                      horizontal: 100.h, vertical: 20.w)
                                   : EdgeInsets.symmetric(
                                       horizontal: width * 0.2, vertical: 25),
                               textStyle:

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
 
 import '../../Core/common_methods.dart';
 import '../../Core/common_wedgits.dart';
@@ -73,7 +74,12 @@ class _EasypaisaScreenState extends State<EasypaisaScreen> {
                 ),
 
                 SizedBox(height: 30),
-                CoustomButton(pointToOnPress: (){}, buttonTitle: "Proceed"),
+                CoustomButton(pointToOnPress: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>HomeScreen() ),
+                  );
+                }, buttonTitle: "Proceed"),
 
 
               ],
