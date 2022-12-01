@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
-
+import 'package:quran/quran.dart' as quran;
 import '../OnboardingScreeen/onboarding_contents.dart';
 
 class QuranScreen2 extends StatefulWidget {
@@ -14,11 +14,41 @@ class QuranScreen2 extends StatefulWidget {
 }
 
 class _QuranScreen2State extends State<QuranScreen2> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Quran Demo"),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Juz Number: \n${quran.getJuzNumber(18, 1)}"),
+              Text("\nJuz URL: \n${quran.getJuzURL(15)}"),
+              Text(
+                  "\nSurah and Verses in Juz 15: \n${quran.getSurahAndVersesFromJuz(15)}"),
+              Text("\nSurah Name: \n${quran.getSurahName(19)}"),
+              Text("\nSurah Name (English): \n${quran.getSurahNameArabic(19)}"),
+              Text("\nSurah URL: \n${quran.getSurahURL(18)}"),
+              Text("\nTotal Verses: \n${quran.getVerseCount(18)}"),
+              Text(
+                  "\nPlace of Revelation: \n${quran.getPlaceOfRevelation(18)}"),
+              const Text("\nBasmala: \n${quran.basmala}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 1)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 2)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 3)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 4)}"),
+              Text("\nVerse 1: \n${quran.getVerse(19, 5)}"),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    /*Scaffold(
       //  backgroundColor: Colors.cyanAccent,
         body:
         SafeArea(
@@ -140,6 +170,6 @@ class _QuranScreen2State extends State<QuranScreen2> {
         )
 
 
-    );
+    );*/
   }
 }

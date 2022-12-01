@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
+import 'package:prayer_assitant/Feature/HomeScreen/Calender.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_contents.dart';
 class slider extends StatefulWidget {
   slider({Key? key}) : super(key: key);
@@ -69,22 +70,28 @@ List monthimg = [
           viewportFraction: 0.5,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            padding: EdgeInsets.only(right: 5),
-            child: Stack(children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(monthimg[index],height: 100 ,width: 150,fit: BoxFit.fill,)),
-              Positioned(
-                bottom: 5,
-                child: Container( height: 20,width: 137.w,
-                     decoration: BoxDecoration(color: Colors.white70,
-                         borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Text(monthsName[index],textAlign: TextAlign.center,),
-                ),
-              )
+          return InkWell(
+            onTap:  (){ Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Calander(month: index+1,)),
+            );},
+            child: Container(
+              padding: EdgeInsets.only(right: 5),
+              child: Stack(children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(monthimg[index],height: 100 ,width: 150,fit: BoxFit.fill,)),
+                Positioned(
+                  bottom: 5,
+                  child: Container( height: 20,width: 137.w,
+                       decoration: BoxDecoration(color: Colors.white70,
+                           borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Text(monthsName[index],textAlign: TextAlign.center,),
+                  ),
+                )
 
-            ],),);
+              ],),),
+          );
         },
 
       ),

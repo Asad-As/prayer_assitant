@@ -6,13 +6,16 @@ import 'package:prayer_assitant/Feature/DonationsScreens/donation_screen2.dart';
 import 'package:prayer_assitant/Feature/DuasScreen/DuaScreen.dart';
 import 'package:prayer_assitant/Feature/HadeesSreen/hadees_screen.dart';
 import 'package:prayer_assitant/Feature/HajjGuideScreen/hajjguide_screen.dart';
+import 'package:prayer_assitant/Feature/NearByMosque.dart';
 import 'package:prayer_assitant/Feature/PrayertimeScreen/prayertime_screen.dart';
+import 'package:prayer_assitant/Feature/QiblaDirection/Qibla_campas.dart';
 import 'package:prayer_assitant/Feature/QuranScreens/Quran_screen1.dart';
 import 'package:prayer_assitant/Feature/RamadanScreen/ramadan_screen.dart';
 
 import '../OnboardingScreeen/onboarding_contents.dart';
 import '../QiblaDirection/qiblaDirection.dart';
 import '../UmrahGuideScreen/umrahguide_screen.dart';
+import 'Calender.dart';
 List title = [
   "Qibla Direction",
   "Prayer Time",
@@ -42,9 +45,9 @@ List imgs= [
 List<Widget> screenlist = [
   // just route from here by placing screeen
 
-  QiblaScreen1(),
-  PrayertimeScreen(),
-  PrayertimeScreen(),
+  //QiblaScreen1(),
+  QiblahCompass(),
+  PrayertimeScreen(), PrayertimeScreen(),
   DuasScreen(),
   RamadanScreen(),
   QuranScreen1(),

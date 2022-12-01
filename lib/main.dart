@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
 
-           home:isviewed != 0 ? OnboardingScreen() : HomeScreen(),
+           home:isviewed != 0 ?  HomeScreen() : OnboardingScreen(),
             /*home: SplashScreen()*/
           );
         }

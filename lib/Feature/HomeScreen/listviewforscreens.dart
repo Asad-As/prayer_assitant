@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/homeModel.dart';
-import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_contents.dart';
-import 'package:prayer_assitant/Feature/QiblaDirection/qiblaDirection.dart';
 class ListviewforScreens extends StatelessWidget {
  ListviewforScreens({Key? key}) : super(key: key);
 

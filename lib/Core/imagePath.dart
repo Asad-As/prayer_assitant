@@ -43,6 +43,9 @@ class Images {
 
    String qibla= '$assetsPath/qibla.png';
 
+   String  needle= '$assetsPath/needle.svg';
+   String  comppass= '$assetsPath/compass.svg';
+
 
 
 }
