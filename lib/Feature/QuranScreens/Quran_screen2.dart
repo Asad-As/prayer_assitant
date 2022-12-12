@@ -1,54 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
 import 'package:quran/quran.dart' as quran;
+
 import '../OnboardingScreeen/onboarding_contents.dart';
 
-class QuranScreen2 extends StatefulWidget {
-  const QuranScreen2({Key? key}) : super(key: key);
-
-  @override
-  State<QuranScreen2> createState() => _QuranScreen2State();
-}
-
-class _QuranScreen2State extends State<QuranScreen2> {
+class QuranScreen2 extends StatelessWidget {
+  int surah_No;
+  QuranScreen2({Key? key, required this.surah_No}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Quran Demo"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Juz Number: \n${quran.getJuzNumber(18, 1)}"),
-              Text("\nJuz URL: \n${quran.getJuzURL(15)}"),
-              Text(
-                  "\nSurah and Verses in Juz 15: \n${quran.getSurahAndVersesFromJuz(15)}"),
-              Text("\nSurah Name: \n${quran.getSurahName(19)}"),
-              Text("\nSurah Name (English): \n${quran.getSurahNameArabic(19)}"),
-              Text("\nSurah URL: \n${quran.getSurahURL(18)}"),
-              Text("\nTotal Verses: \n${quran.getVerseCount(18)}"),
-              Text(
-                  "\nPlace of Revelation: \n${quran.getPlaceOfRevelation(18)}"),
-              const Text("\nBasmala: \n${quran.basmala}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 1)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 2)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 3)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 4)}"),
-              Text("\nVerse 1: \n${quran.getVerse(19, 5)}"),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    /*Scaffold(
+    return 
+    Scaffold(
       //  backgroundColor: Colors.cyanAccent,
         body:
         SafeArea(
@@ -103,53 +67,41 @@ class _QuranScreen2State extends State<QuranScreen2> {
 
 
                               ),
-                              child: Center(child: Tstyles(text: "Surah Al-Fatiha",Fsize: 21.sp,bold: FontWeight.bold,color: AppColors.witheColor)),
+                              child: Center(child: Tstyles(text: quran.getSurahNameArabic(surah_No),Fsize: 21.sp,bold: FontWeight.bold,color: AppColors.witheColor)),
                             ),
                           ),
                           Expanded(
                             child: ListView.builder(
-
-                              itemCount: 6,
+                            itemCount: quran.getVerseCount(surah_No),
                               itemBuilder: (context, int index) {
                                 return Container(
-
-
-                                  height: 65.h,
                                   width: 350.w,
-
                                   child: Column(
-
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-
-
                                       ListTile(
-
-
-                                        title: Tstyles(text:"ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ",Fsize: 20.sp,bold: FontWeight.bold,Textside: TextAlign.right)  ,
+                                        title: quran.isSajdahVerse(surah_No, index+1)?
+                                        Tstyles(text:quran.getVerse(surah_No, index+1)+"     @سجدة",Fsize: 20.sp,bold: FontWeight.bold,Textside: TextAlign.right)
+                                        :
+                                        Tstyles(text:quran.getVerse(surah_No, index+1),Fsize: 20.sp,bold: FontWeight.bold,Textside: TextAlign.right)  ,
                                         trailing: Padding(
                                           padding:  EdgeInsets.only(bottom: 8),
                                           child: Container(
-                                              height: 20.h,
-                                              width: 20.w,
-
-
-
-
+                                              height: 30.h,
+                                              width: 30.w,
                                               decoration: BoxDecoration(
                                                 color: AppColors.witheColor,
                                                 shape: BoxShape.circle,
                                                 boxShadow:  [
-
                                                   BoxShadow( color: Colors.black45,spreadRadius: 2.r),
                                                 ],
                                               ),
-                                              child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 14.sp,bold: FontWeight.bold,))),
-                                        )  ,
+                                              child: Center(child: Tstyles(text:"${index+1}",Fsize: 14.sp,bold: FontWeight.bold,)
 
-
-
-                                      ),
+                                              )),
+                                        ),
+                                        //leading: quran.isSajdahVerse(surah_No, index+1)?
+                                         ),
                                     ],
                                   ),
 
@@ -170,6 +122,23 @@ class _QuranScreen2State extends State<QuranScreen2> {
         )
 
 
-    );*/
+    );
   }
 }
+
+/*   Text("Juz Number: \n${quran.getJuzNumber(18, 1)}"),
+              Text("\nJuz URL: \n${quran.getJuzURL(15)}"),
+              Text(
+                  "\nSurah and Verses in Juz 15: \n${quran.getSurahAndVersesFromJuz(15)}"),*/
+ //Text("\nSurah Name: \n${quran.getSurahName(surah_No)}"),
+/*  Text("\nSurah Name (English): \n${quran.getSurahNameArabic(19)}"),
+              Text("\nSurah URL: \n${quran.getSurahURL(18)}"),
+              Text("\nTotal Verses: \n${quran.getVerseCount(18)}"),
+              Text(
+                  "\nPlace of Revelation: \n${quran.getPlaceOfRevelation(18)}"),
+              const Text("\nBasmala: \n${quran.basmala}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 1)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 2)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 3)}"),
+              Text("\nVerse 1: \n${quran.getVerse(18, 4)}"),
+              Text("\nVerse 1: \n${quran.getVerse(19, 5)}"),*/

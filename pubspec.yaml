@@ -53,6 +53,7 @@ dependencies:
   geocoding: ^2.0.5
   flutter_svg: ^1.1.6
   quran: ^1.1.7
+  http: ^0.13.5
 
 
 

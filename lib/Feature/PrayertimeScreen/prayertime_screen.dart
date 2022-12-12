@@ -194,10 +194,15 @@ class _PrayertimeScreenState extends State<PrayertimeScreen> {
                   fit: BoxFit.cover,
                 )
             ),
-            child: Center(
               child: Container(
+                    height: 50.sh,
+                    width: 50.sw,
+                  child: Center(child: SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: CircularProgressIndicator())),
+    //Text(" Please wait \n Permision is not Granted",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)
 
-                  child: Text(" Please wait \n Permision is not Granted",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
             ),
           ),
         );
