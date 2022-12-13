@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/size_config.dart';
 
 import '../HomeScreen/HomeScreen.dart';
+import '../SplashScreen/Splash_screen.dart';
 import 'onboarding_contents.dart';
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -121,7 +123,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) =>HomeScreen() ),
+                                MaterialPageRoute(builder: (context) => SplashScreen() ),
                               );
                             },
                             child: const Text("START"),

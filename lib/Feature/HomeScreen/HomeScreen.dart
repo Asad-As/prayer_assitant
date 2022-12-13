@@ -51,15 +51,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20,
                           decoration: BoxDecoration(
                         color:AppColors.Kiconcolor,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
-                          child: Icon(Icons.search)),
+                          child: Icon(Icons.search,color: AppColors.witheColor,)
+
+                      ),
                       fillColor: AppColors.Ksearchcolor,
                       filled: true,
                       enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(width: 2, color: AppColors.Ksearchcolor),
-                        borderRadius: BorderRadius.circular(30.0),
+                        BorderSide(width: 3, color: AppColors.Ksearchcolor),
+                        borderRadius: BorderRadius.circular(50.0),
+
 
                       ),
                       focusColor: AppColors.Ksearchcolor,
