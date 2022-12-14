@@ -43,6 +43,7 @@ class Images {
 
    String qibla= '$assetsPath/qibla.png';
    String splishBKG= '$assetsPath/splashpic.png';
+   String ramdanDuwa= '$assetsPath/img_1.png';
 
 
 

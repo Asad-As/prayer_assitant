@@ -43,7 +43,8 @@ Widget makeInput({obsureText = false,hint,allcontroller,Htext,txt2, Iconss,icons
                 //_passwordcontroller.compareTo(conformPW) == 0;
                 //_passwordcontroller.text.toString() != conformPW.text.toString()
 
-                if(_passwordcontroller.text != conformPW.text){
+                if(_passwordcontroller.text.compareTo(conformPW.text) == 0){
+
 
                   return txt2;
 

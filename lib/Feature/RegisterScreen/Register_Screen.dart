@@ -173,7 +173,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             },
 
                             buttonTitle: "REGISTER"),
-                        SizedBox(height: 10.h,)
+                        SizedBox(height: 10.h,),
+
+
 
 
                       ],
