@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -46,30 +45,30 @@ class _QiblaScreen1State extends State<QiblaScreen1> {
           return const QiblahScreen();
         } else {
           return  Scaffold(
-            body: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                          imageS.bg
-                      ),
-                      fit: BoxFit.cover
-                  )
-              ),
-              child: Center(child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("not supported please go back"),
-                  ElevatedButton(onPressed: (){
-                    _animationController?.dispose();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  HomeScreen()),
-                    );},
+              body: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                            imageS.bg
+                        ),
+                        fit: BoxFit.cover
+                    )
+                ),
+                child: Center(child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("not supported please go back"),
+                    ElevatedButton(onPressed: (){
+                      _animationController?.dispose();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  HomeScreen()),
+                      );},
                       child: Text("back to home "), ),
-                ],
-              )),
-            )
+                  ],
+                )),
+              )
           );
         }
       },

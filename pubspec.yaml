@@ -45,6 +45,14 @@ dependencies:
   geolocator: ^9.0.2
   stream_transform: ^2.0.1
   vector_math: ^2.1.2
+  shared_preferences: ^2.0.15
+  firebase_auth: ^4.1.4
+  firebase_storage: ^11.0.6
+  firebase_database: ^10.0.6
+  fluttertoast:
+  get: ^4.6.5
+
+
 
 
 dev_dependencies:

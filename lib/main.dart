@@ -1,16 +1,29 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
+import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_screen.dart';
+import 'package:prayer_assitant/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-int? isviewed;
-void main()  async{
-  runApp(MyApp());
+import 'Feature/SplashScreen/Splash_screen.dart';
 
+int? isviewed;
+Future<void> main()  async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await
+  Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isviewed = prefs.getInt('onBoard');
+  await prefs.setInt('onBoard', 1);
+  runApp(MyApp());
+
+
 
 }
 
@@ -28,13 +41,13 @@ class MyApp extends StatelessWidget {
         builder: (context, child)
         {
           return MaterialApp(
-            title: 'Flutter  hello world Demo',
+            title: 'Prayer Assistant',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
 
-           home:isviewed != 0 ? OnboardingScreen() : HomeScreen(),
+           home:isviewed == 0 || isviewed == null ? OnboardingScreen() :SplashScreen(),
             /*home: SplashScreen()*/
           );
         }

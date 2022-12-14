@@ -30,6 +30,7 @@ class _RamadanScreenState extends State<RamadanScreen> {
             )
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 height: 20.h,
@@ -43,55 +44,18 @@ class _RamadanScreenState extends State<RamadanScreen> {
                     )),
               ),
               SizedBox(
-                height: 15.h,
+                height: 30.h,
+              ),
+
+
+
+              Container(
+                child: Image.asset(imageS.ramdanDuwa,),
 
               ),
-              Expanded(
-                flex: 5,
-                child: ListView.builder(
-
-                    itemCount: 8,
-                    itemBuilder: (context, int index) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(vertical: 12.h),
-                        child: Container(
-
-                          height: 73.h,
-                          width: 350.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                            color: AppColors.witheColor,
 
 
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 35),
-                            child: Column(
 
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-
-
-                                ListTile(
-
-                                  title:
-                                  //Text('Betabyte Tec',style: TextStyle(fontSize: 18),),
-
-                                  Tstyles(text:"${index+1} Reading",Fsize: 18.sp,bold: FontWeight.bold)  ,
-
-                                  subtitle: Tstyles(text: "Ramadan",Fsize: 13.sp,),
-
-
-                                ),
-                              ],
-                            ),
-                          ),
-
-
-                        ),
-                      );
-                    }),
-              ),
 
             ],
           ),
