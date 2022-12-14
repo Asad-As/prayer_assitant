@@ -16,6 +16,8 @@ class Calander extends StatefulWidget {
 }
 
 class _CalanderState extends State<Calander> {
+
+
   @override
   Widget build(BuildContext context) {
     print(widget.month);
@@ -45,8 +47,8 @@ class _CalanderState extends State<Calander> {
                 child: Card(
                   margin: const EdgeInsets.fromLTRB(40, 150, 40, 150),
                   child: SfHijriDateRangePicker(
-                   // minDate:_minDate,
-                  //  maxDate:_maxdate,
+                   // minDate:Haj,
+                   // maxDate:;
                     view: HijriDatePickerView.month,
                     monthViewSettings: HijriDatePickerMonthViewSettings(
                         firstDayOfWeek: 1,

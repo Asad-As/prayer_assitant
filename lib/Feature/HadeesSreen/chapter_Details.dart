@@ -4,60 +4,63 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
+import 'package:prayer_assitant/Core/Api_models/Hadess_model.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
+import 'package:prayer_assitant/Core/Loading_indicator.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
-import 'package:prayer_assitant/Feature/HadeesSreen/chapter_Details.dart';
 
-import '../../Core/Loading_indicator.dart';
 import '../OnboardingScreeen/onboarding_contents.dart';
 
-class ChapterScreen extends StatefulWidget {
+class ChapterDetails extends StatefulWidget {
   final String Name;
   final String Link;
+  final int  Chap_No;
 
-  ChapterScreen({Key? key, required this.Link, required this.Name})
+  ChapterDetails({Key? key,required this.Chap_No, required this.Link, required this.Name})
       : super(key: key);
 
+
   @override
-  State<ChapterScreen> createState() => _ChapterScreenState();
+  State<ChapterDetails> createState() => _ChapterDetailsState();
+
 }
 
-class _ChapterScreenState extends State<ChapterScreen> {
+class _ChapterDetailsState extends State<ChapterDetails> {
 
-  List<dynamic> BookList = [];
 
-  Future<List<dynamic>> getChapters() async {
+  List<Hadess_model> Hadees_List = [];
+
+  Future<List<dynamic>> getHadeesList() async {
     final response = await http.get(Uri.parse(widget.Link));
-    var data = jsonDecode(response.body)['metadata']['sections'];
-    print(response.statusCode);
-    if (response.statusCode == 200) {
+    var data = jsonDecode(response.body)['hadiths'];
 
-      int a = 0;
-      while (true) {
-       /* if( !( identical(data[a.toString()], "")) == false)
-          {}*/
-        BookList.add(data[a.toString()]);
-        a++;
-
-        // BookList.add(open_book);
-
-        if (data[a.toString()] == "" ||
-            data[a.toString()] == null ||
-            data[a.toString()] == false ||
-            data[a.toString()] == 0) {
-          a = 0;
-          break;
+    if (response.statusCode == 200)
+    {
+      for(Map i in data)
+        {
+             Hadess_model model = Hadess_model.fromJson(i);
+             if ( widget.Chap_No  == model.reference.book  && !( identical(model.text, "") ))
+        {
+          Hadees_List.add(model);
+          print(model.hadithnumber.toString());
         }
-      }
 
-      return BookList;
+        }
+
+      return Hadees_List;
     } else {
-      return BookList;
+      return Hadees_List;
     }
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.Chap_No);
     return Scaffold(
       //  backgroundColor: Colors.cyanAccent,
         body:
@@ -89,26 +92,24 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 Expanded(
                   flex: 5,
                   child: FutureBuilder(
-                      future: getChapters(),
+                      future: getHadeesList(),
                       builder: (context,AsyncSnapshot<List<dynamic>> snapshot)
                    {
-                       if(!snapshot.hasData)
+                       /*if(!snapshot.hasData)
                         { return LoadingIndicator();  }
-                       else
-                           return ListView.builder(
+                         else*/
+                       return ListView.builder(
 
-                        itemCount:BookList.length,
+                        itemCount:Hadees_List.length,
                         itemBuilder: (context, int index) {
                           return Padding(
                             padding: EdgeInsets.symmetric(vertical: 12.h),
                             child: Container(
+                              
                               width: 350.w,
                               decoration:  BoxDecoration(
                                 borderRadius: BorderRadius.all(Radius.circular(5.r)),
                                 color: AppColors.witheColor,
-
-
-
                               ),
                               child: Column(
 
@@ -117,22 +118,30 @@ class _ChapterScreenState extends State<ChapterScreen> {
 
 
                                   InkWell(
-                                      onTap: (){ Navigator.push(
+                                 /*     onTap: (){ Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>ChapterDetails(Chap_No: index, Link: widget.Link, Name: BookList[index])),
-                                  );},
+                                    MaterialPageRoute(builder: (context) =>QuranScreen2(surah_No: index+1,)),
+                                  );},*/
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 10),
                                       child: ListTile(
-                                        title: Tstyles(text:BookList[index],Fsize: 18.sp,bold: FontWeight.bold)  ,
-                                        leading:   Container(
-                                            height: 50.h,
-                                            width: 55.w,
+                                        title: Tstyles(text:Hadees_List[index].text,Fsize: 18.sp,bold: FontWeight.bold)  ,
+                                        trailing:   Container(
+                                            width: 60.w,
                                             decoration: BoxDecoration(
                                               borderRadius: BorderRadius.all(Radius.circular(5.r)),
                                               color: AppColors.btn2_Color,
                                             ),
-                                            child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.bold)))  ,
+                                            child: Center(child: Column(
+                                              children: [
+
+                                                Tstyles(text:"N:${Hadees_List[index].reference.hadith.toString()}",Fsize: 18.sp,bold: FontWeight.bold)
+                                               , Tstyles(text:"T:${Hadees_List[index].hadithnumber.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
+                                               // Tstyles(text:"T:${Hadees_List[index].grades[0].grade.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
+                                                //Tstyles(text:"T:${Hadees_List[index].grades.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
+
+                                              ],
+                                            ) ))  ,
 
 
                                       ),

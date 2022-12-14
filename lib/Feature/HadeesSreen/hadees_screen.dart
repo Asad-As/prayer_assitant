@@ -12,24 +12,7 @@ class HadeesScreen extends StatefulWidget {
 
   @override
   State<HadeesScreen> createState() => _HadeesScreenState();
-  List<String> Book_names=[
-    'abudawud',
-    'bukhari',
-    'ibnmajah',
-    'malik',
-    'muslim',
-    'nasai',
-    ' tirmidhi'
-  ];
-  List<String> Book_links=[
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-abudawud.json',
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-bukhari.json',
-    "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-ibnmajah.json",
-    "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-malik.json",
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-muslim.json',
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-nasai.json',
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-tirmidhi.json'
-  ];
+
 }
 
 class _HadeesScreenState extends State<HadeesScreen> {
@@ -40,7 +23,7 @@ class _HadeesScreenState extends State<HadeesScreen> {
     'malik',
     'muslim',
     'nasai',
-    ' tirmidhi'
+    'tirmidhi'
   ];
   List<String> Book_links=[
     'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-abudawud.json',
