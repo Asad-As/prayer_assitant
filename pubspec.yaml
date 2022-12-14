@@ -45,15 +45,13 @@ dependencies:
   geolocator: ^9.0.2
   stream_transform: ^2.0.1
   vector_math: ^2.1.2
-  flutter_native_splash: ^2.2.16
   shared_preferences: ^2.0.15
-  flutter_localization: ^0.1.9
-  syncfusion_flutter_datepicker: ^20.3.59
-  adhan: ^1.1.16
-  geocoding: ^2.0.5
-  flutter_svg: ^1.1.6
-  quran: ^1.1.7
-  http: ^0.13.5
+  firebase_auth: ^4.1.4
+  firebase_storage: ^11.0.6
+  firebase_database: ^10.0.6
+  fluttertoast:
+  get: ^4.6.5
+
 
 
 

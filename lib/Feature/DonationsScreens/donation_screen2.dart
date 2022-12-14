@@ -25,6 +25,7 @@ class _DonationScreen2State extends State<DonationScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
       //  backgroundColor: Colors.cyanAccent,
         body:
         SafeArea(
