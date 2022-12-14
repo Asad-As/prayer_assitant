@@ -51,6 +51,10 @@ dependencies:
   firebase_database: ^10.0.6
   fluttertoast:
   get: ^4.6.5
+  quran: ^1.1.8
+  flutter_svg: ^1.1.6
+  syncfusion_flutter_datepicker: ^20.3.61
+  adhan: ^1.1.16
 
 
 

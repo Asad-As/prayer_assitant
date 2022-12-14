@@ -11,11 +11,8 @@ import 'package:prayer_assitant/Feature/PrayertimeScreen/prayertime_screen.dart'
 import 'package:prayer_assitant/Feature/QiblaDirection/Qibla_campas.dart';
 import 'package:prayer_assitant/Feature/QuranScreens/Quran_screen1.dart';
 import 'package:prayer_assitant/Feature/RamadanScreen/ramadan_screen.dart';
-
 import '../OnboardingScreeen/onboarding_contents.dart';
-import '../QiblaDirection/qiblaDirection.dart';
 import '../UmrahGuideScreen/umrahguide_screen.dart';
-import 'Calender.dart';
 List title = [
   "Qibla Direction",
   "Prayer Time",
