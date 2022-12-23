@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
 import 'package:quran/quran.dart' as quran;
-
 import '../OnboardingScreeen/onboarding_contents.dart';
 
 class QuranScreen2 extends StatelessWidget {
   int surah_No;
   QuranScreen2({Key? key, required this.surah_No}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return 
@@ -81,9 +81,8 @@ class QuranScreen2 extends StatelessWidget {
                                     children: [
                                       ListTile(
                                         title: quran.isSajdahVerse(surah_No, index+1)?
-                                        Tstyles(text:quran.getVerse(surah_No, index+1)+"     @سجدة",Fsize: 20.sp,bold: FontWeight.bold,Textside: TextAlign.right)
-                                        :
-                                        Tstyles(text:quran.getVerse(surah_No, index+1),Fsize: 20.sp,bold: FontWeight.bold,Textside: TextAlign.right)  ,
+                                  Text(quran.getVerse(surah_No, index+1)+"     @سجدة" ,textAlign: TextAlign.justify,textDirection:TextDirection.rtl,style: TextStyle(fontSize: 15,fontWeight:FontWeight.w600)):
+                                         Text( quran.getVerse(surah_No, index+1) ,textAlign: TextAlign.justify,textDirection:TextDirection.rtl,style: TextStyle(fontSize: 15,fontWeight:FontWeight.w600),),
                                         trailing: Padding(
                                           padding:  EdgeInsets.only(bottom: 8),
                                           child: Container(
@@ -124,21 +123,6 @@ class QuranScreen2 extends StatelessWidget {
 
     );
   }
-}
 
-/*   Text("Juz Number: \n${quran.getJuzNumber(18, 1)}"),
-              Text("\nJuz URL: \n${quran.getJuzURL(15)}"),
-              Text(
-                  "\nSurah and Verses in Juz 15: \n${quran.getSurahAndVersesFromJuz(15)}"),*/
- //Text("\nSurah Name: \n${quran.getSurahName(surah_No)}"),
-/*  Text("\nSurah Name (English): \n${quran.getSurahNameArabic(19)}"),
-              Text("\nSurah URL: \n${quran.getSurahURL(18)}"),
-              Text("\nTotal Verses: \n${quran.getVerseCount(18)}"),
-              Text(
-                  "\nPlace of Revelation: \n${quran.getPlaceOfRevelation(18)}"),
-              const Text("\nBasmala: \n${quran.basmala}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 1)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 2)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 3)}"),
-              Text("\nVerse 1: \n${quran.getVerse(18, 4)}"),
-              Text("\nVerse 1: \n${quran.getVerse(19, 5)}"),*/
+
+}

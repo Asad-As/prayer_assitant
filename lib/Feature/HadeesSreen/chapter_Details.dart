@@ -1,14 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:http/http.dart' as http;
 import 'package:prayer_assitant/Core/Api_models/Hadess_model.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/Loading_indicator.dart';
-import 'package:prayer_assitant/Core/common_methods.dart';
-
 import '../OnboardingScreeen/onboarding_contents.dart';
 
 class ChapterDetails extends StatefulWidget {
@@ -31,24 +28,23 @@ class _ChapterDetailsState extends State<ChapterDetails> {
   List<Hadess_model> Hadees_List = [];
 
   Future<List<dynamic>> getHadeesList() async {
-    final response = await http.get(Uri.parse(widget.Link));
-    var data = jsonDecode(response.body)['hadiths'];
-
-    if (response.statusCode == 200)
+    final response = await rootBundle.loadString(widget.Link);
+    var data = jsonDecode(response)['hadiths'];
     {
-      for(Map i in data)
-        {
-             Hadess_model model = Hadess_model.fromJson(i);
-             if ( widget.Chap_No  == model.reference.book  && !( identical(model.text, "") ))
-        {
-          Hadees_List.add(model);
-          print(model.hadithnumber.toString());
-        }
+      print(widget.Chap_No);
 
-        }
+      for (Map i in data) {
+        Hadess_model model = Hadess_model.fromJson(i);
 
-      return Hadees_List;
-    } else {
+        if(model.reference.book == 20)
+            print(model.reference.book);
+
+        if (widget.Chap_No == model.reference.book )
+          // && !( identical(model.text, "") )
+            {
+              Hadees_List.add(model);
+              }
+      }
       return Hadees_List;
     }
   }
@@ -60,7 +56,6 @@ class _ChapterDetailsState extends State<ChapterDetails> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.Chap_No);
     return Scaffold(
       //  backgroundColor: Colors.cyanAccent,
         body:
@@ -81,7 +76,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
                   child: Text(widget.Name,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30.sp,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                       )),
                 ),
@@ -90,14 +85,14 @@ class _ChapterDetailsState extends State<ChapterDetails> {
 
                 ),
                 Expanded(
-                  flex: 5,
+                  flex: 3,
                   child: FutureBuilder(
                       future: getHadeesList(),
                       builder: (context,AsyncSnapshot<List<dynamic>> snapshot)
                    {
-                       /*if(!snapshot.hasData)
+                       if(Hadees_List.length <= 0)
                         { return LoadingIndicator();  }
-                         else*/
+                         else
                        return ListView.builder(
 
                         itemCount:Hadees_List.length,
@@ -123,27 +118,20 @@ class _ChapterDetailsState extends State<ChapterDetails> {
                                     MaterialPageRoute(builder: (context) =>QuranScreen2(surah_No: index+1,)),
                                   );},*/
                                     child: Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: ListTile(
-                                        title: Tstyles(text:Hadees_List[index].text,Fsize: 18.sp,bold: FontWeight.bold)  ,
-                                        trailing:   Container(
-                                            width: 60.w,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                                              color: AppColors.btn2_Color,
-                                            ),
-                                            child: Center(child: Column(
-                                              children: [
-
-                                                Tstyles(text:"N:${Hadees_List[index].reference.hadith.toString()}",Fsize: 18.sp,bold: FontWeight.bold)
-                                               , Tstyles(text:"T:${Hadees_List[index].hadithnumber.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
-                                               // Tstyles(text:"T:${Hadees_List[index].grades[0].grade.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
-                                                //Tstyles(text:"T:${Hadees_List[index].grades.toString()}",Fsize: 18.sp,bold: FontWeight.bold),
-
-                                              ],
-                                            ) ))  ,
-
-
+                                      padding: const EdgeInsets.only(top: 10,left: 5,right: 5),
+                                      child: Center(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                           children: [
+                                             Text("حدیث:${Hadees_List[index].reference.hadith.toString()}"),
+                                             Padding(padding: EdgeInsets.symmetric(horizontal: 15),child: Text( Hadees_List[index].text ,textAlign: TextAlign.justify,textDirection:TextDirection.rtl,)),
+                                             Divider(height: 3,thickness: 2,indent: 8,endIndent: 8,),
+                                             Center(
+                                               child: Text(" بحواله كتاب:${Hadees_List[index].hadithnumber.toString()}",
+                                               ),
+                                             )
+                                           ],
+                                        ),
                                       ),
                                     ),
                                   ),

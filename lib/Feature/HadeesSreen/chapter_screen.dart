@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:prayer_assitant/Core/AppColors.dart';
@@ -27,17 +28,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
   List<dynamic> BookList = [];
 
   Future<List<dynamic>> getChapters() async {
-    final response = await http.get(Uri.parse(widget.Link));
-    var data = jsonDecode(response.body)['metadata']['sections'];
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-
+    final response = await rootBundle.loadString(widget.Link);
+    print(response);
+    var data = jsonDecode(response)['metadata']['sections'];
+    {
       int a = 0;
       while (true) {
-       /* if( !( identical(data[a.toString()], "")) == false)
-          {}*/
-        BookList.add(data[a.toString()]);
-        a++;
+           // if(!(identical(data[a.toString()], "")))
+            BookList.add(data[a.toString()]);
+
+             a++;
 
         // BookList.add(open_book);
 
@@ -51,9 +51,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
       }
 
       return BookList;
-    } else {
+    }/* else {
       return BookList;
-    }
+    }*/
   }
 
   @override
@@ -78,7 +78,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   child: Text(widget.Name,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30.sp,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                       )),
                 ),
@@ -92,9 +92,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
                       future: getChapters(),
                       builder: (context,AsyncSnapshot<List<dynamic>> snapshot)
                    {
-                       if(!snapshot.hasData)
-                        { return LoadingIndicator();  }
-                       else
+                     if(BookList.length <= 0)
+                     { return LoadingIndicator();  }
                            return ListView.builder(
 
                         itemCount:BookList.length,
@@ -122,9 +121,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                     MaterialPageRoute(builder: (context) =>ChapterDetails(Chap_No: index, Link: widget.Link, Name: BookList[index])),
                                   );},
                                     child: Padding(
-                                      padding: const EdgeInsets.only(top: 10),
+                                      padding: const EdgeInsets.only(top: 5),
                                       child: ListTile(
-                                        title: Tstyles(text:BookList[index],Fsize: 18.sp,bold: FontWeight.bold)  ,
+                                        title: Tstyles(text:BookList[index],Fsize: 15.sp,bold: FontWeight.w500)  ,
                                         leading:   Container(
                                             height: 50.h,
                                             width: 55.w,
@@ -132,7 +131,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                               borderRadius: BorderRadius.all(Radius.circular(5.r)),
                                               color: AppColors.btn2_Color,
                                             ),
-                                            child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.bold)))  ,
+                                            child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.w500)))  ,
 
 
                                       ),

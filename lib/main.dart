@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
-import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/onboarding_screen.dart';
 import 'package:prayer_assitant/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,11 +22,7 @@ Future<void> main()  async{
   await prefs.setInt('onBoard', 1);
   runApp(MyApp());
 
-
-
 }
-
-
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
@@ -46,9 +41,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-
-           home:isviewed == 0 || isviewed == null ? OnboardingScreen() :SplashScreen(),
-            /*home: SplashScreen()*/
+           home:isviewed == 0 || isviewed == null ? OnboardingScreen() :HomeScreen(),
           );
         }
     );

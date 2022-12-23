@@ -26,13 +26,21 @@ class _HadeesScreenState extends State<HadeesScreen> {
     'tirmidhi'
   ];
   List<String> Book_links=[
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-abudawud.json',
+      'Assets/hades/abudawud.json',
+      'Assets/hades/bukhari.json',
+      'Assets/hades/ibnmajah.json',
+      'Assets/hades/malik.json',
+      'Assets/hades/muslim.json',
+      'Assets/hades/nasai.json',
+      'Assets/hades/tirmmidhi.json',
+
+    /*'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-abudawud.json',
     'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-bukhari.json',
     "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-ibnmajah.json",
     "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-malik.json",
     'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-muslim.json',
     'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-nasai.json',
-    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-tirmidhi.json'
+    'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/urd-tirmidhi.json'*/
   ];
 
 
@@ -58,7 +66,7 @@ class _HadeesScreenState extends State<HadeesScreen> {
                 child: Text('Hadees',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30.sp,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
                     )),
               ),
@@ -98,9 +106,9 @@ class _HadeesScreenState extends State<HadeesScreen> {
                                   MaterialPageRoute(builder: (context) =>ChapterScreen(Name: Book_names[index],Link: Book_links[index],)),
                                 );},
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                  padding: const EdgeInsets.only(top: 8),
                                   child: ListTile(
-                                    title: Tstyles(text:Book_names[index],Fsize: 18.sp,bold: FontWeight.bold)  ,
+                                    title: Tstyles(text:Book_names[index],Fsize:  15.sp,bold: FontWeight.w600)  ,
                                     leading:   Container(
                                         height: 50.h,
                                         width: 55.w,
@@ -108,7 +116,7 @@ class _HadeesScreenState extends State<HadeesScreen> {
                                           borderRadius: BorderRadius.all(Radius.circular(5.r)),
                                           color: AppColors.btn2_Color,
                                         ),
-                                        child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.bold)))  ,
+                                        child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 15.sp,bold: FontWeight.bold)))  ,
 
 
                                   ),

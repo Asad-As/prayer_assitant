@@ -1,42 +1,29 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:prayer_assitant/Core/common_methods.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/HomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../LoginScreen/loginscreen.dart';
 import '../OnboardingScreeen/onboarding_contents.dart';
-import '../RegisterScreen/Register_Screen.dart';
+
  //var  finalEmail;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
-
-
-
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 
 }
-
-
 class _SplashScreenState extends State<SplashScreen> {
    String? finalEmail ;
-
-
-  @override
+   @override
   void initState() {
 
     GetvalidationData().whenComplete(() => {
     Timer(Duration(seconds: 2),
-        //  ()=>Get.to(finalEmail == null ? LoginScreen()  : HomeScreen())
     ()=>  Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-      return finalEmail == null ? LoginScreen()  : HomeScreen();
+      return finalEmail == null ? HomeScreen() : HomeScreen();
     }),)
     ),
 

@@ -11,7 +11,7 @@ class ListviewforScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 2250.h,
+      height: 1840.h,
       child: ListView.builder(
         physics:NeverScrollableScrollPhysics(),
           itemCount:widgetlist.length,

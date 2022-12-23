@@ -35,26 +35,25 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+
   flutter_screenutil:
   firebase_core: ^2.2.0
   flutter_qiblah: ^2.1.0
   permission_handler: ^10.2.0
-  carousel_slider: ^4.1.1
   flutter_compass: ^0.7.0
   geolocator: ^9.0.2
-  stream_transform: ^2.0.1
-  vector_math: ^2.1.2
   shared_preferences: ^2.0.15
   firebase_auth: ^4.1.4
   firebase_storage: ^11.0.6
   firebase_database: ^10.0.6
   fluttertoast:
-  get: ^4.6.5
   quran: ^1.1.8
   flutter_svg: ^1.1.6
   syncfusion_flutter_datepicker: ^20.3.61
   adhan: ^1.1.16
+  carousel_slider: ^4.2.1
+  get: ^4.6.5
+  flutter_native_splash: ^2.2.16
 
 
 
@@ -85,6 +84,7 @@ flutter:
   assets:
     - Assets/OnboardingScreenImages/
     - Assets/images/
+    - Assets/hades/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:prayer_assitant/Feature/LoginScreen/loginscreen.dart';
 import 'package:prayer_assitant/Feature/OnboardingScreeen/size_config.dart';
 
 import '../HomeScreen/HomeScreen.dart';
@@ -67,7 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemCount: contents.length,
                 itemBuilder: (context, i) {
                   return Padding(
-                    padding:  EdgeInsets.all(40.0.r),
+                    padding:  EdgeInsets.all(30.0.r),
                     child: Column(
                       children: [
                         Image.asset(
@@ -75,7 +74,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           height: SizeConfig.blockV! * 35,
                         ),
                         SizedBox(
-                          height: (height >= 840) ? 60 : 30,
+                          height: (height >= 840) ? 60 : 20,
                         ),
                         Text(
                           contents[i].title,
@@ -83,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           style: TextStyle(
                             fontFamily: "Mulish",
                             fontWeight: FontWeight.w600,
-                            fontSize: (width <= 550) ? 30 : 35,
+                            fontSize: (width <= 550) ? 30 : 25,
                           ),
                         ),
                         const SizedBox(height: 15),
@@ -121,10 +120,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           padding: const EdgeInsets.all(30),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => SplashScreen() ),
-                              );
+                              Navigator.pushAndRemoveUntil(
+                                  context, MaterialPageRoute(builder: (context) => HomeScreen()), (
+                                  route) => false);
                             },
                             child: const Text("START"),
                             style: ElevatedButton.styleFrom(
@@ -143,7 +141,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         )
                       : Padding(
-                          padding: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
