@@ -24,6 +24,8 @@ class ChapterScreen extends StatefulWidget {
 }
 
 class _ChapterScreenState extends State<ChapterScreen> {
+  final editcontroller = TextEditingController();
+
 
   List<dynamic> BookList = [];
 
@@ -86,6 +88,52 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   height: 15.h,
 
                 ),
+                TextField(
+                    controller:  editcontroller,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(left: 30),
+                      hintText: "Search Here",
+                      suffixIcon: Container(
+                          height: 30,
+                          width: 20,
+                          decoration: BoxDecoration(
+                            color:AppColors.Kiconcolor,
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                          ),
+                          child: Icon(Icons.search,color: AppColors.witheColor,)
+
+                      ),
+                      fillColor: AppColors.Ksearchcolor,
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(width: 3, color: AppColors.Ksearchcolor),
+                        borderRadius: BorderRadius.circular(50.0),
+
+
+                      ),
+                      focusColor: AppColors.Ksearchcolor,
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide:
+                        BorderSide(width: 2, color: AppColors.Ksearchcolor),
+                        borderRadius: BorderRadius.circular(30.0),
+
+                      ),
+
+                    ),
+
+                    onChanged: (String value){
+                      setState((){
+
+                      });
+
+                    }
+
+                ),
+                SizedBox(
+                  height: 5.h,
+
+                ),
                 Expanded(
                   flex: 5,
                   child: FutureBuilder(
@@ -93,57 +141,68 @@ class _ChapterScreenState extends State<ChapterScreen> {
                       builder: (context,AsyncSnapshot<List<dynamic>> snapshot)
                    {
                      if(BookList.length <= 0)
-                     { return LoadingIndicator();  }
-                           return ListView.builder(
 
-                        itemCount:BookList.length,
-                        itemBuilder: (context, int index) {
-                          return Padding(
-                            padding: EdgeInsets.symmetric(vertical: 12.h),
-                            child: Container(
-                              width: 350.w,
-                              decoration:  BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                                color: AppColors.witheColor,
+                     {
+                       return LoadingIndicator();  }
 
+                     return ListView.builder(
 
-
-                              ),
-                              child: Column(
-
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                         itemCount:BookList.length,
+                         itemBuilder: (context, int index) {
+                   if(BookList[index].toLowerCase().contains(editcontroller.text.toLowerCase().toLowerCase()))
+                   {
+                     return Padding(
+                       padding: EdgeInsets.symmetric(vertical: 12.h),
+                       child: Container(
+                         width: 350.w,
+                         decoration:  BoxDecoration(
+                           borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                           color: AppColors.witheColor,
 
 
-                                  InkWell(
-                                      onTap: (){ Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) =>ChapterDetails(Chap_No: index, Link: widget.Link, Name: BookList[index])),
-                                  );},
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(top: 5),
-                                      child: ListTile(
-                                        title: Tstyles(text:BookList[index],Fsize: 15.sp,bold: FontWeight.w500)  ,
-                                        leading:   Container(
-                                            height: 50.h,
-                                            width: 55.w,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                                              color: AppColors.btn2_Color,
-                                            ),
-                                            child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.w500)))  ,
+
+                         ),
+                         child: Column(
+
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
 
 
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                             InkWell(
+                               onTap: (){ Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) =>ChapterDetails(Chap_No: index, Link: widget.Link, Name: BookList[index])),
+                               );},
+                               child: Padding(
+
+                                 padding: const EdgeInsets.only(top: 5,bottom: 5),
+                                 child: ListTile(
+                                   title: Tstyles(text:BookList[index],Fsize: 15.sp,bold: FontWeight.w500)  ,
+                                   leading:   Container(
+                                       height: 50.h,
+                                       width: 55.w,
+                                       decoration: BoxDecoration(
+                                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                                         color: AppColors.btn2_Color,
+                                       ),
+                                       child: Center(child: Tstyles(text:" ${index+1} ",Fsize: 18.sp,bold: FontWeight.w500)))  ,
 
 
-                            ),
-                          );
-                        });
+                                 ),
+                               ),
+                             ),
+                           ],
+                         ),
+
+
+                       ),
+                     );
+                   }
+
+                   else {return Container();}
+                         });
+
+
                    }
                   ),
                 ),

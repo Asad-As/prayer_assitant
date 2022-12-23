@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/homeModel.dart';
 class ListviewforScreens extends StatelessWidget {
  ListviewforScreens({Key? key}) : super(key: key);
+ final editcontroller = TextEditingController();
+
 
 
 
@@ -16,6 +18,9 @@ class ListviewforScreens extends StatelessWidget {
         physics:NeverScrollableScrollPhysics(),
           itemCount:widgetlist.length,
           itemBuilder: (BuildContext context, int index) {
+
+    if(widgetlist.toString().toLowerCase().contains(editcontroller.text.toLowerCase().toLowerCase()))
+    {
             return InkWell(
               onTap: (){ Navigator.push(
                 context,
@@ -37,6 +42,12 @@ class ListviewforScreens extends StatelessWidget {
                 )
               ),
             );
+            }
+        else {
+
+          return Container();
+           }
+
           }
 
           ),

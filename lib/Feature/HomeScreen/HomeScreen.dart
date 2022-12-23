@@ -58,23 +58,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                             child: Icon(Icons.search,color: AppColors.witheColor,)
 
-                        ),
-                        fillColor: AppColors.Ksearchcolor,
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(width: 3, color: AppColors.Ksearchcolor),
-                          borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      fillColor: AppColors.Ksearchcolor,
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(width: 3, color: AppColors.Ksearchcolor),
+                        borderRadius: BorderRadius.circular(50.0),
 
 
-                        ),
-                        focusColor: AppColors.Ksearchcolor,
-                        focusedBorder:  OutlineInputBorder(
-                          borderSide:
-                          BorderSide(width: 2, color: AppColors.Ksearchcolor),
-                          borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      focusColor: AppColors.Ksearchcolor,
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide:
+                        BorderSide(width: 2, color: AppColors.Ksearchcolor),
+                        borderRadius: BorderRadius.circular(30.0),
 
-                        ),
+                      ),
 
                       ),
                     ),
