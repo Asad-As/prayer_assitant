@@ -82,11 +82,14 @@ List monthimg = [
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.asset(monthimg[index],height: 100 ,width: 150,fit: BoxFit.fill,)),
                 Positioned(
-                  bottom: 5,
-                  child: Container( height: 20,width: 137.w,
-                       decoration: BoxDecoration(color: Colors.white70,
-                           borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Text(monthsName[index],textAlign: TextAlign.center,),
+                  left: 5.w,
+                  bottom: 5.h,
+                  child: Center(
+                    child: Container( height: 20,width: 137.w,
+                         decoration: BoxDecoration(color: Colors.white70,
+                             borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Text(monthsName[index],textAlign: TextAlign.center,),
+                    ),
                   ),
                 )
 

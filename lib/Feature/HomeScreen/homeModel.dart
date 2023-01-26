@@ -7,6 +7,7 @@ import 'package:prayer_assitant/Feature/QiblaDirection/Qibla_campas.dart';
 import 'package:prayer_assitant/Feature/QuranScreens/Quran_screen1.dart';
 import 'package:prayer_assitant/Feature/RamadanScreen/ramadan_screen.dart';
 import '../OnboardingScreeen/onboarding_contents.dart';
+import '../UmrahGuideScreen/guide_screen.dart';
 import '../UmrahGuideScreen/umrahguide_screen.dart';
 List title = [
   "Qibla Direction",
@@ -16,7 +17,7 @@ List title = [
   "Ramadan",
   "Quran",
   "Hadees",
-  "Umrah Guide",
+  "Hajj-Umrah Guidance",
   "Hajj Guid",
 ];
 List imgs= [
@@ -40,8 +41,8 @@ List<Widget> screenlist = [
   RamadanScreen(),
   QuranScreen1(),
   HadeesScreen(),// on place of teach of islam,
-  UmrahGuideScreen(),
-  HajjGuideScreen(),
+  Guidescreen(),
+ // HajjGuideScreen(),
 ];
 
 class HomeModel{
@@ -66,7 +67,7 @@ List<HomeModel> widgetlist =[
   HomeModel(Title: title[5], Image: imgs[5], ScreenName:screenlist[5] ),
   HomeModel(Title: title[6], Image: imgs[6], ScreenName:screenlist[6] ),
   HomeModel(Title: title[7], Image: imgs[7], ScreenName:screenlist[7] ),
-  HomeModel(Title: title[8], Image: imgs[8], ScreenName:screenlist[8] ),
+ // HomeModel(Title: title[8], Image: imgs[8], ScreenName:screenlist[8] ),
 
 ];
 

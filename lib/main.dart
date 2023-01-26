@@ -41,7 +41,8 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-           home:isviewed == 0 || isviewed == null ? OnboardingScreen() :HomeScreen(),
+          // home:isviewed == 0 || isviewed == null ? OnboardingScreen() :HomeScreen(),
+           home:  HomeScreen(),
           );
         }
     );
