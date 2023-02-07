@@ -3,19 +3,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/homeModel.dart';
 class ListviewforScreens extends StatelessWidget {
  ListviewforScreens({Key? key}) : super(key: key);
+ final editcontroller = TextEditingController();
 
 
 
+ List title = [
+   "Qibla Direction",
+   "Prayer Time",
+   "Nearby Mosque",
+   "Duas",
+   "Ramadan",
+   "Quran",
+   "Hadees",
+   "Hajj-Umrah Guidance",
+
+ ];
 
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 1840.h,
+      height: 1635.h,
       child: ListView.builder(
         physics:NeverScrollableScrollPhysics(),
           itemCount:widgetlist.length,
           itemBuilder: (BuildContext context, int index) {
+
+    if(title[index].toLowerCase().contains(editcontroller.text.toLowerCase().toLowerCase()))
+    {
             return InkWell(
               onTap: (){ Navigator.push(
                 context,
@@ -32,11 +47,20 @@ class ListviewforScreens extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(widgetlist[index].Image),
-                    Text(widgetlist[index].Title,style: TextStyle(fontSize: 20),)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Text(widgetlist[index].Title,style: TextStyle(fontSize: 20,),),
+                    )
                   ],
                 )
               ),
             );
+            }
+        else {
+
+          return Container();
+           }
+
           }
 
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:prayer_assitant/Core/AppColors.dart';
 import 'package:prayer_assitant/Core/AppSizeBox.dart';
+import 'package:prayer_assitant/Core/common_methods.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/SliderforMonths.dart';
 import 'package:prayer_assitant/Feature/HomeScreen/listviewforscreens.dart';
 
@@ -19,8 +20,33 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Images imageS = Images();
 
-  TextEditingController _editingController= TextEditingController();
+  final edittextcontroller = TextEditingController();
 
+  List monthsName =[
+    'Muharram',
+    'Safar',
+    'Rabi al-Awwal',
+    'Rabi al-Thani',
+    'Jumada al-Awwal',
+    'Jumada al-Thani',
+    'Rajab',
+    'Shaban',
+    'Ramadan',
+    'Shawwal',
+    'Dhu al-Qadah',
+    'Dhu al-Hijjah '
+  ];
+  List title = [
+    "Qibla Direction",
+    "Prayer Time",
+    "Nearby Mosque",
+    "Duas",
+    "Ramadan",
+    "Quran",
+    "Hadees",
+    "Hajj-Umrah Guidance",
+    "Hajj Guid",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,39 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 43.h,
                     width: 1.sh/2,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 30),
-                        hintText: "Search Here",
-                        suffixIcon: Container(
-                            height: 30,
-                            width: 20,
-                            decoration: BoxDecoration(
-                          color:AppColors.Kiconcolor,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                        ),
-                            child: Icon(Icons.search,color: AppColors.witheColor,)
-
-                        ),
-                        fillColor: AppColors.Ksearchcolor,
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(width: 3, color: AppColors.Ksearchcolor),
-                          borderRadius: BorderRadius.circular(50.0),
-
-
-                        ),
-                        focusColor: AppColors.Ksearchcolor,
-                        focusedBorder:  OutlineInputBorder(
-                          borderSide:
-                          BorderSide(width: 2, color: AppColors.Ksearchcolor),
-                          borderRadius: BorderRadius.circular(30.0),
-
-                        ),
-
-                      ),
-                    ),
+                    child: Center(child: Tstyles(text: "Prayer Assistant",Fsize: 25.0,bold: FontWeight.bold,color: AppColors.witheColor)),
                   ),
                   fixheight15,
                   Text('Islamic Calander ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: AppColors.witheColor),),
